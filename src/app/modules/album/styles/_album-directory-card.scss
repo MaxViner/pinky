@@ -1,0 +1,159 @@
+@use "mixins" as *;
+
+.album-directories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.album-directory-card {
+  @include album-card-base;
+  @include album-focus-ring;
+  @include album-hover-glow;
+
+  display: block;
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+
+  &__visual {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #05070a;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+    transition:
+      transform 0.45s ease,
+      filter 0.3s ease;
+  }
+
+  &:hover &__image,
+  &:focus-visible &__image {
+    transform: scale(1.05);
+    filter: brightness(0.55) saturate(1.08);
+  }
+
+  &__placeholder {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    color: rgba(255, 255, 255, 0.35);
+    background: #151a22;
+    
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 70%;
+    background: linear-gradient(
+      to top,
+      rgba(4, 7, 11, 0.94) 0%,
+      rgba(4, 7, 11, 0.72) 48%,
+      rgba(4, 7, 11, 0) 100%
+    );
+    opacity: 0;
+    transition: opacity 1s ease;
+    pointer-events: none;
+    
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -1px;
+      right: 0;
+      left: 0;
+      height: 2px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(53, 240, 138, 0.9),
+        transparent
+      );
+      box-shadow: 10px 0px 50px green;
+      filter: blur(1px);
+    }
+  }
+
+  &:hover &__overlay,
+  &:focus-visible &__overlay {
+    opacity: 1;
+  }
+
+  &__hover {
+    position: absolute;
+    inset: auto 0 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 10px;
+    height: 70%;
+    padding: 18px;
+    color: #fff;
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+    pointer-events: none;
+  }
+
+  &:hover &__hover,
+  &:focus-visible &__hover {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &__description {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.88);
+    @include album-line-clamp(3);
+    
+  }
+
+  &__hover-stats {
+    display: flex;
+    gap: 14px;
+    font-size: 0.76rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  &__body {
+    padding: 18px;
+     
+    background-color: #05070a;
+  }
+
+  &__meta {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.74rem;
+    color: var(--album-text-muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__title {
+    margin: 0 0 8px;
+    font-size: 1.15rem;
+  }
+
+  &__text {
+    margin: 0;
+    color: var(--album-text-muted);
+    font-size: 0.88rem;
+    line-height: 1.45;
+    @include album-line-clamp(2);
+  }
+}

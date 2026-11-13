@@ -1,0 +1,16 @@
+.album-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 34px;
+  border: 1px solid var(--album-border);
+  border-radius: 18px;
+  background: var(--album-surface);
+  color: var(--album-text-muted);
+
+  &--error {
+    color: var(--album-danger);
+    border-color: var(--album-danger-border);
+  }
+}

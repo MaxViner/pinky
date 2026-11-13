@@ -1,0 +1,93 @@
+.album-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  background: rgba(2, 4, 8, 0.95);
+  backdrop-filter: blur(10px);
+
+  &__image {
+    max-width: min(100%, 1600px);
+    max-height: calc(100vh - 120px);
+    object-fit: contain;
+    border: 1px solid var(--album-gold-border);
+    border-radius: 10px;
+    box-shadow:
+      var(--album-shadow-strong),
+      var(--album-gold-glow);
+  }
+
+  &__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.12);
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      background: rgba(255, 255, 255, 0.22);
+    }
+  }
+
+  &__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 54px;
+    height: 54px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 34px;
+    line-height: 1;
+    background: rgba(255, 255, 255, 0.12);
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &:hover:not(:disabled),
+    &:focus-visible:not(:disabled) {
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    &:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    &--prev {
+      left: 20px;
+    }
+
+    &--next {
+      right: 20px;
+    }
+  }
+
+  &__caption {
+    position: absolute;
+    bottom: 22px;
+    left: 50%;
+    max-width: 80%;
+    overflow: hidden;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.9rem;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transform: translateX(-50%);
+  }
+}

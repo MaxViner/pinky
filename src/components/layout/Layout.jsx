@@ -13,6 +13,7 @@ export default function Layout() {
             <Heart size={17} fill="currentColor" />
           </span>
           <span>
+            Оля и Костя
             наша история
             <small>семейный проект</small>
           </span>

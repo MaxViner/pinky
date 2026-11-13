@@ -1,0 +1,35 @@
+// Основная палитра: чёрный, зелёный, белый.
+// Золотой используется только как редкий акцент.
+
+:root {
+  // Базовые поверхности
+  --album-bg: #05070a;
+  --album-surface: #0b0e13;
+  --album-surface-raised: #10151c;
+  --album-border: rgba(255, 255, 255, 0.08);
+  --album-border-strong: rgba(255, 255, 255, 0.14);
+
+  // Текст
+  --album-text: #f4f7fb;
+  --album-text-secondary: rgba(244, 247, 251, 0.68);
+  --album-text-muted: rgba(244, 247, 251, 0.48);
+
+  // Главный акцент — зелёный
+  --album-accent: #35f08a;
+  --album-accent-soft: rgba(53, 240, 138, 0.14);
+  --album-accent-border: rgba(53, 240, 138, 0.38);
+  --album-accent-glow: 0 0 18px rgba(53, 240, 138, 0.28);
+
+  // Редкий золотой акцент
+  --album-gold: #d9b36a;
+  --album-gold-border: rgba(217, 179, 106, 0.35);
+  --album-gold-glow: 0 0 22px rgba(217, 179, 106, 0.16);
+
+  // Состояния
+  --album-danger: #ff7a7a;
+  --album-danger-border: rgba(255, 122, 122, 0.28);
+
+  // Тени
+  --album-shadow-soft: 0 18px 48px rgba(0, 0, 0, 0.45);
+  --album-shadow-strong: 0 26px 80px rgba(0, 0, 0, 0.65);
+}

@@ -1,0 +1,23 @@
+.album-breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--album-text-muted);
+
+  a {
+    color: var(--album-text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--album-accent);
+    }
+  }
+
+  b {
+    color: var(--album-text);
+  }
+}
